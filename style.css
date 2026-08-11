@@ -1329,3 +1329,254 @@ footer .brand {
   color: #fff;
   font-size: 32px;
 }
+
+/* =========================================
+   AJUSTES FINAIS PARA CELULAR
+   Cole este bloco no final do style.css
+========================================= */
+
+@media (max-width: 640px) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+
+  .container {
+    width: calc(100% - 32px);
+  }
+
+  /* Header */
+  .nav {
+    justify-content: center;
+    height: 72px;
+    gap: 0;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    right: 0;
+  }
+
+  .brand {
+    max-width: 180px;
+  }
+
+  .brand-logo {
+    width: 125px;
+    max-height: 52px;
+  }
+
+  /* Home */
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-content {
+    padding-top: 72px;
+  }
+
+  .hero-art::after {
+    top: auto;
+    right: -20%;
+    bottom: 3%;
+    width: 85vw;
+  }
+
+  .hero-title-with-logo {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(42px, 13vw, 57px);
+  }
+
+  .hero-logo {
+    width: 95px;
+    max-height: 88px;
+  }
+
+  .hero-text {
+    max-width: 94%;
+    margin: 18px 0 25px;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+  }
+
+  .hero-scroll {
+    bottom: 18px;
+  }
+
+  /* Botões e espaçamentos */
+  .button {
+    gap: 14px;
+    padding: 12px 15px;
+    font-size: 10px;
+  }
+
+  .section,
+  .difference,
+  .appointment {
+    padding: 76px 0;
+  }
+
+  h2 {
+    font-size: clamp(34px, 10vw, 45px);
+  }
+
+  /* Sobre, contato e comparador */
+  .about-grid,
+  .location-grid,
+  .comparison .container {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .portrait-placeholder {
+    min-height: 390px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  /* Especialidades */
+  .service-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .service-card {
+    min-height: 135px;
+    padding: 18px;
+  }
+
+  .service-card h3 {
+    margin-top: 14px;
+  }
+
+  .difference-list p {
+    gap: 16px;
+    font-size: 16px;
+  }
+
+  /* Galeria */
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  .gallery-item,
+  .gallery-item.large {
+    grid-row: auto;
+    grid-column: auto;
+    min-height: 220px;
+  }
+
+  .gallery-item img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* Depoimentos */
+  .testimonial-track {
+    min-height: 300px;
+  }
+
+  .testimonial blockquote {
+    font-size: 25px;
+  }
+
+  /* Antes e depois */
+  .compare,
+  .before-after-slider {
+    height: 250px;
+  }
+
+  .ba-label {
+    bottom: 12px;
+    font-size: 14px;
+  }
+
+  .ba-divider::after {
+    width: 32px;
+    height: 32px;
+  }
+
+  /* Localização */
+  .location address {
+    font-size: 20px;
+  }
+
+  .contact-data {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .map {
+    min-height: 300px;
+  }
+
+  /* Rodapé */
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .footer-grid > div:first-child {
+    grid-column: auto;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  /* Cookie */
+  .cookie-banner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  /* Botões flutuantes */
+  .whatsapp,
+  .back-top {
+    right: 14px;
+  }
+
+  .whatsapp {
+    bottom: 14px;
+  }
+
+  .back-top {
+    bottom: 72px;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    width: 94vw;
+    padding: 12px;
+  }
+
+  .lightbox img {
+    max-height: 70vh;
+  }
+
+  .lightbox p {
+    font-size: 17px;
+  }
+}
