@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Disallow: /security/
+Sitemap: https://www.dramabelesanches.com.br/sitemap.xml
