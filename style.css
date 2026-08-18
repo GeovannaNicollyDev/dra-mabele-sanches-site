@@ -401,13 +401,21 @@ h2 i {
 
 .about-grid {
   display: grid;
-  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
+  grid-template-columns: 42% 1fr;
   align-items: center;
   gap: 11%;
 }
 
 .portrait {
   position: relative;
+  min-width: 0;
+  width: 100%;
+}
+
+.portrait-placeholder img {
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 .portrait::before {
@@ -447,14 +455,9 @@ h2 {
 }
 
 .about-copy > p:not(.eyebrow) {
-  width: 100%;
   max-width: 450px;
-  margin-left: 0;
-  margin-right: 0;
   color: var(--muted);
   text-align: justify;
-  overflow-wrap: break-word;
-  word-wrap: break-word;
 }
 
 .value-grid {
@@ -1342,13 +1345,23 @@ footer .brand {
 ========================================= */
 
 @media (max-width: 640px) {
+  /*
+    MOBILE
+    A largura do container é definida por margens laterais,
+    evitando que elementos internos do grid aumentem a largura da página.
+  */
   html,
   body {
+    width: 100%;
+    max-width: 100%;
     overflow-x: hidden;
   }
 
   .container {
-    width: calc(100% - 32px);
+    width: auto;
+    max-width: none;
+    margin-left: 16px;
+    margin-right: 16px;
   }
 
   /* Header */
@@ -1375,10 +1388,14 @@ footer .brand {
   /* Home */
   .hero {
     min-height: 620px;
+    width: 100%;
+    max-width: 100%;
   }
 
   .hero-content {
     padding-top: 72px;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .hero-art::after {
@@ -1392,15 +1409,20 @@ footer .brand {
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+    min-width: 0;
+    max-width: 100%;
   }
 
   .hero h1 {
     max-width: 100%;
+    min-width: 0;
     font-size: clamp(42px, 13vw, 57px);
+    overflow-wrap: break-word;
   }
 
   .hero-logo {
     width: 95px;
+    max-width: 100%;
     max-height: 88px;
   }
 
@@ -1438,16 +1460,72 @@ footer .brand {
     font-size: clamp(34px, 10vw, 45px);
   }
 
-  /* Sobre, contato e comparador */
-  .about-grid,
-  .location-grid,
-  .comparison .container {
-    grid-template-columns: 1fr;
+  /* SOBRE
+     O min-width: 0 é essencial no grid.
+     A imagem do retrato também é limitada à coluna.
+  */
+  .about-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
     gap: 38px;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .portrait,
+  .about-copy {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
   }
 
   .portrait-placeholder {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
     min-height: 390px;
+    overflow: hidden;
+  }
+
+  .portrait-placeholder img {
+    display: block;
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .about-copy {
+    overflow: visible;
+  }
+
+  .about-copy h2 {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+  }
+
+  .about-copy > p:not(.eyebrow) {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+    box-sizing: border-box;
+
+    font-size: 15px;
+    line-height: 1.8;
+    text-align: left;
+    letter-spacing: normal;
+    word-spacing: normal;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 
   .value-grid {
@@ -1522,6 +1600,12 @@ footer .brand {
   }
 
   /* Localização */
+  .location-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 38px;
+    min-width: 0;
+  }
+
   .location address {
     font-size: 20px;
   }
@@ -1532,7 +1616,15 @@ footer .brand {
   }
 
   .map {
+    width: 100%;
     min-height: 300px;
+  }
+
+  /* Comparador */
+  .comparison .container {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 35px;
+    min-width: 0;
   }
 
   /* Rodapé */
@@ -1585,74 +1677,4 @@ footer .brand {
   .lightbox p {
     font-size: 17px;
   }
-}
-
-/* =====================================================
-   CORREÇÃO FINAL - SEÇÃO SOBRE - MOBILE
-   ===================================================== */
-
-@media screen and (max-width: 640px) {
-
-    /* Impede qualquer elemento da seção de criar largura extra */
-    .about,
-    .about .container,
-    .about-grid,
-    .about-copy {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        box-sizing: border-box;
-    }
-
-    /* Container com margem interna segura */
-    .about .container {
-        width: 100%;
-        padding-left: 16px;
-        padding-right: 16px;
-        margin: 0;
-    }
-
-    /* Uma única coluna no celular */
-    .about-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) !important;
-        gap: 38px;
-    }
-
-    /* Área do texto */
-    .about-copy {
-        overflow: visible;
-    }
-
-    /* Título */
-    .about-copy h2 {
-        width: 100%;
-        max-width: 100%;
-        min-width: 0;
-        overflow-wrap: break-word;
-    }
-
-    /* PARÁGRAFOS */
-    .about-copy > p:not(.eyebrow) {
-        display: block;
-        width: 100%;
-        max-width: none !important;
-        min-width: 0;
-
-        margin-left: 0;
-        margin-right: 0;
-        padding-left: 0;
-        padding-right: 0;
-
-        box-sizing: border-box;
-
-        font-size: 15px;
-        line-height: 1.8;
-
-        text-align: left;
-
-        white-space: normal;
-        overflow-wrap: anywhere;
-        word-break: normal;
-    }
 }
