@@ -401,7 +401,7 @@ h2 i {
 
 .about-grid {
   display: grid;
-  grid-template-columns: 42% 1fr;
+  grid-template-columns: minmax(0, 42%) minmax(0, 1fr);
   align-items: center;
   gap: 11%;
 }
@@ -447,9 +447,14 @@ h2 {
 }
 
 .about-copy > p:not(.eyebrow) {
+  width: 100%;
   max-width: 450px;
+  margin-left: 0;
+  margin-right: 0;
   color: var(--muted);
   text-align: justify;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .value-grid {
@@ -1582,24 +1587,22 @@ footer .brand {
   }
 }
 
-/* CORREÇÃO DEFINITIVA - TEXTO DA SEÇÃO SOBRE NO CELULAR */
 @media screen and (max-width: 640px) {
 
   .about {
     width: 100%;
-    overflow: hidden;
+    max-width: 100%;
   }
 
   .about .container {
     width: calc(100% - 32px);
-    max-width: none;
-    margin-left: 16px;
-    margin-right: 16px;
+    max-width: calc(100% - 32px);
+    padding: 0;
   }
 
   .about-grid {
     display: grid;
-    grid-template-columns: minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) !important;
     width: 100%;
     max-width: 100%;
     gap: 38px;
@@ -1609,32 +1612,23 @@ footer .brand {
     width: 100%;
     max-width: 100%;
     min-width: 0;
-    overflow: hidden;
   }
 
   .about-copy h2 {
-    width: 100%;
     max-width: 100%;
-    overflow-wrap: break-word;
-    word-break: normal;
   }
 
   .about-copy > p:not(.eyebrow) {
-    display: block;
     width: 100%;
     max-width: 100%;
     min-width: 0;
+    padding: 0;
+    margin-left: 0;
     margin-right: 0;
-    padding-right: 0;
-    box-sizing: border-box;
-
     font-size: 15px;
     line-height: 1.8;
-
     text-align: left;
-
-    overflow-wrap: anywhere;
+    overflow-wrap: break-word;
     word-break: normal;
   }
-
 }
