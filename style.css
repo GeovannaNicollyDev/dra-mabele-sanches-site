@@ -447,7 +447,7 @@ h2 {
 }
 
 .about-copy > p:not(.eyebrow) {
-  max-width: 310px;
+  max-width: 450px;
   color: var(--muted);
   text-align: justify;
 }
@@ -1579,5 +1579,22 @@ footer .brand {
 
   .lightbox p {
     font-size: 17px;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-copy {
+    width: 100%;
+    min-width: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+  }
+
+  .about-copy > p:not(.eyebrow) {
+    width: 100%;
+    max-width: 100%;
+    text-align: left;
+    overflow-wrap: break-word;
+    word-break: normal;
   }
 }
