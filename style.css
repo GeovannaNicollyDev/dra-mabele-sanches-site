@@ -1587,48 +1587,72 @@ footer .brand {
   }
 }
 
+/* =====================================================
+   CORREÇÃO FINAL - SEÇÃO SOBRE - MOBILE
+   ===================================================== */
+
 @media screen and (max-width: 640px) {
 
-  .about {
-    width: 100%;
-    max-width: 100%;
-  }
+    /* Impede qualquer elemento da seção de criar largura extra */
+    .about,
+    .about .container,
+    .about-grid,
+    .about-copy {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
 
-  .about .container {
-    width: calc(100% - 32px);
-    max-width: calc(100% - 32px);
-    padding: 0;
-  }
+    /* Container com margem interna segura */
+    .about .container {
+        width: 100%;
+        padding-left: 16px;
+        padding-right: 16px;
+        margin: 0;
+    }
 
-  .about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) !important;
-    width: 100%;
-    max-width: 100%;
-    gap: 38px;
-  }
+    /* Uma única coluna no celular */
+    .about-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) !important;
+        gap: 38px;
+    }
 
-  .about-copy {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-  }
+    /* Área do texto */
+    .about-copy {
+        overflow: visible;
+    }
 
-  .about-copy h2 {
-    max-width: 100%;
-  }
+    /* Título */
+    .about-copy h2 {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-wrap: break-word;
+    }
 
-  .about-copy > p:not(.eyebrow) {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    padding: 0;
-    margin-left: 0;
-    margin-right: 0;
-    font-size: 15px;
-    line-height: 1.8;
-    text-align: left;
-    overflow-wrap: break-word;
-    word-break: normal;
-  }
+    /* PARÁGRAFOS */
+    .about-copy > p:not(.eyebrow) {
+        display: block;
+        width: 100%;
+        max-width: none !important;
+        min-width: 0;
+
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+
+        box-sizing: border-box;
+
+        font-size: 15px;
+        line-height: 1.8;
+
+        text-align: left;
+
+        white-space: normal;
+        overflow-wrap: anywhere;
+        word-break: normal;
+    }
 }
