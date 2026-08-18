@@ -447,7 +447,7 @@ h2 {
 }
 
 .about-copy > p:not(.eyebrow) {
-  max-width: 420px;
+  max-width: 380px;
   color: var(--muted);
   text-align: justify;
 }
