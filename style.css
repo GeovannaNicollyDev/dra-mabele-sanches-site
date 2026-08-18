@@ -414,7 +414,7 @@ h2 i {
   content: "";
   position: absolute;
   bottom: -20px;
-  left: -20px;
+  left: -10px;
   z-index: 0;
   width: 60%;
   height: 64%;
@@ -447,7 +447,7 @@ h2 {
 }
 
 .about-copy > p:not(.eyebrow) {
-  max-width: 620px;
+  max-width: 450px;
   color: var(--muted);
 }
 
