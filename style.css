@@ -886,10 +886,15 @@ footer .brand {
   color: #fff;
   font-size: 26px;
   box-shadow: var(--shadow);
+  transition: 0.25s ease;
+}
+
+.whatsapp:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 .back-top {
-  bottom: 83px;
+  bottom: 139px;
   border: 1px solid var(--gold);
   background: var(--paper);
   color: var(--gold);
@@ -901,6 +906,37 @@ footer .brand {
 .back-top.show {
   opacity: 1;
   visibility: visible;
+  transition: 0.25s ease;
+}
+
+.instagram {
+  position: fixed;
+  right: 25px;
+  bottom: 82px;
+  z-index: 11;
+
+  display: grid;
+  width: 47px;
+  height: 47px;
+  place-items: center;
+
+  border-radius: 50%;
+  background: linear-gradient(
+    135deg,
+    #f9ce34,
+    #ee2a7b,
+    #6228d7
+  );
+
+  color: #fff;
+  font-size: 25px;
+  box-shadow: var(--shadow);
+
+  transition: 0.25s ease;
+}
+
+.instagram:hover {
+  transform: translateY(-3px) scale(1.05);
 }
 
 .lightbox {
@@ -1179,9 +1215,14 @@ footer .brand {
     bottom: 16px;
   }
 
+  .instagram {
+  right: 16px;
+  bottom: 72px;
+}
+
   .back-top {
     right: 16px;
-    bottom: 74px;
+    bottom: 128px;
   }
 }
 
